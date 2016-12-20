@@ -1,9 +1,9 @@
 // branch:master ,setup 161220
 // branch:master ,setup 161220
 // branch:master ,setup 161220
-
+// local git test
 // FST.cpp : 定义应用程序的类行为。
-/
+
 
 #include "stdafx.h"
 #include "afxwinappex.h"
