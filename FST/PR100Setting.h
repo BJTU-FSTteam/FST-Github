@@ -2,7 +2,8 @@
 
 
 // PR100Setting ¶Ô»°¿ò
-
+ #pragma once
+ #include "afxwin.h"
 class PR100Setting : public CDialogEx
 {
 	DECLARE_DYNAMIC(PR100Setting)
@@ -23,4 +24,22 @@ protected:
 public:
 	afx_msg void OnBnClickedOk();
 	int curAT;
+	enum { IDD = IDD_PR100_DIALOG };
+	CComboBox m_ctrlAT;
+	CString m_AT;
+	CComboBox m_cbFrequency;
+	CString m_strFrequency;
+	CString m_FR;
+	CString m_LD;
+	CString m_LU;
+	CString m_AD;
+
+	afx_msg void OnEnChangeLuEdit();
+	afx_msg void OnEnChangeLdEdit();
+	afx_msg void OnEnChangeAdEdit();
+	afx_msg void OnCbnSelchangeAtCombo();
+	afx_msg void OnCbnSelchangeFrCombo();
+	afx_msg void OnBnClickedCancel();
+	virtual BOOL OnInitDialog();
+	afx_msg void OnSelchangeComboFrequency();
 };

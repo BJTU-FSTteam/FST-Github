@@ -52,6 +52,7 @@ CFSTApp::CFSTApp()
 	SetAppID(_T("FST.AppID.NoVersion"));
 
 	// TODO: 在此处添加构造代码，
+	pView = NULL;
 	// 将所有重要的初始化放置在 InitInstance 中
 }
 
@@ -139,7 +140,7 @@ BOOL CFSTApp::InitInstance()
 	if (!ProcessShellCommand(cmdInfo))
 		return FALSE;
 	// 主窗口已初始化，因此显示它并对其进行更新
-	pMainFrame->ShowWindow(m_nCmdShow);
+	pMainFrame->ShowWindow(SW_SHOWMAXIMIZED);
 	pMainFrame->UpdateWindow();
 
 	return TRUE;

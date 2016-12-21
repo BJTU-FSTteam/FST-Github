@@ -3,6 +3,27 @@
 //
 
 #pragma once
+#include "PR100Setting.h"
+#include <winsock2.h>
+#pragma comment(lib,"ws2_32.lib")
+#include <string>
+#include <fstream>
+using namespace std;
+#include <afxtempl.h>
+
+/*********************此处定义常量并添加注释********************/   //edit by zwbai 161221
+
+typedef CList<CRect, CRect> CListRect;
+const unsigned int nBUFSIZE = 128;     //64组数据，每组占两字节
+#define tagQueryEspi 5       //查询ESPI场强值的定时器ID
+#define tagATCtimeCntDn 6    //控发时间倒计时
+#define tagAutoSave 7        //场强文件自动存盘定时器
+#define MSG_COMDATARECV WM_USER+26
+#define ShareBufferSize 10000000		//场强接收缓存区size
+
+
+/*********************以上定义常变量并添加注释********************/
+
 
 
 class CFSTView : public CView
@@ -56,7 +77,6 @@ public:
 	BOOL InitPR100flag; // FALSE:没有初始化场强仪  TRUE: 场强仪完成初始化
 	bool stopPR100;   //true停止 false不停止 
 	CString Pr100freq;
-	BOOL InitPr100();
 	unsigned char nLevel[10000];
 	int nCountLevel;
 	SOCKET  nSocketUdp;
@@ -74,6 +94,19 @@ public:
 	unsigned char TaxData[6];
 	//add by bzw 161220 end
 	/*****************************************/
+public:
+	BOOL EnumChildProc(HWND hwndChild, LPARAM lParam);
+
+private:
+	int firstTime;
+	bool bSecondTime;
+	double PI;
+	enum
+	{
+		CtrlShow = 0,
+		CtrlHide,
+		CtrlMove
+	};
 
 };
 
