@@ -59,6 +59,7 @@ BEGIN_MESSAGE_MAP(CFSTView, CView)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, &CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &CView::OnFilePrintPreview)
 	ON_COMMAND(ID_PR100_SETTING, &CFSTView::OnPr100Setting)
+	ON_COMMAND(ID_SAVEDATA_BUTTON, &CFSTView::OnSavedataButton)
 END_MESSAGE_MAP()
 
 // CFSTView 构造/析构
@@ -777,4 +778,10 @@ BOOL CFSTView::EnumChildProc(HWND hwndChild, LPARAM lParam)
 		::ShowWindow(hwndChild, SW_SHOW);
 	}
 	return TRUE;
+}
+
+
+void CFSTView::OnSavedataButton()
+{
+	// TODO: 在此添加命令处理程序代码
 }

@@ -108,6 +108,8 @@ private:
 		CtrlMove
 	};
 
+public:
+	afx_msg void OnSavedataButton();
 };
 
 #ifndef _DEBUG  // FSTView.cpp 中的调试版本
